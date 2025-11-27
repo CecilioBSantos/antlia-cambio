@@ -1,0 +1,85 @@
+# Byte-compiled / optimized / DLL files
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Ambiente virtual (venv) e dependências
+venv/
+env/
+*.egg-info/
+.eggs/
+
+#uploads-private
+uploads-private/
+uploads/
+uploads-temp/
+
+# Logs e arquivos temporários
+*.log
+*.pid
+*.sqlite3
+
+# Arquivos de migração e banco de dados local
+migrations/
+instance/
+*.db
+*.sqlite3
+
+# Configurações do IDE e outros metadados
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Arquivos de ambiente e configurações locais
+.env
+*.env
+
+
+# Configurações e arquivos de cache do sistema
+*.DS_Store
+*.AppleDouble
+*.LSOverride
+
+# Cache de bibliotecas do Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Arquivos de cobertura de código e relatórios de teste
+.coverage
+coverage.xml
+htmlcov/
+.tox/
+.pytest_cache/
+nosetests.xml
+test-results/
+
+# Arquivos de compilação
+build/
+dist/
+*.egg
+*.whl
+
+# Arquivos de cache do Jupyter
+.ipynb_checkpoints/
+
+# Arquivos de segurança para chaves e certificados
+*.pem
+*.crt
+*.key
+
+# Arquivos de usuarios
+storage/
+documents/
+photos/
+
+# Arquivos de logs
+logs/
+access.log
+error.log
+
+

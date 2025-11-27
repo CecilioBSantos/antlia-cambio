@@ -42,7 +42,12 @@ antlia-cambio/
 │   ├── base.html
 │   ├── index.html
 │   └── new_purchase.html
-└── static/                 # Arquivos estáticos (CSS, JS, imagens)
+├── static/                 # Arquivos estáticos (CSS, JS, imagens)
+│   ├── storage
+│   ├── css
+│   ├── img
+│   ├── js
+
 ```
 
 ---
@@ -223,5 +228,3 @@ http://127.0.0.1:5000/
 * Deploy em ambiente Linux (Nginx + Gunicorn)
 
 ---
-
-Documentação produzida em padrão **técnico corporativo**, adequada para repositórios profissionais e apresentações executivas.
