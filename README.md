@@ -1,24 +1,55 @@
-# 📘 Projeto Antlia Cambio
+# Antlia Cambio — Documentação Técnica Profissional
 
-Sistema desenvolvido em **Python + Flask** que permita cadastrar compras de dólares e calcular informações da carteira com base nas cotações do Banco Central do Brasil (BCB).
+Sistema desenvolvido em **Python + Flask**, integrado à API **PTAX do Banco Central do Brasil**, para registrar compras de moeda estrangeira (USD), calcular custo médio ponderado e exibir visão consolidada da carteira.
 
 ---
 
-# 1️⃣ Banco de Dados
+## 1. Visão Geral
 
-Utilizamos **PostgreSQL** com a seguinte URL de conexão:
+O **Antlia Cambio** é uma aplicação modular e extensível voltada ao registro de operações cambiais pessoais ou corporativas. Seu objetivo é fornecer:
+
+* Controle estruturado das compras de USD
+* Consulta automática da cotação PTAX (D-1)
+* Cálculo de custo médio ponderado (CMP)
+* Consolidação da carteira em BRL
+* Suporte para futura API REST
+* Arquitetura preparada para growth
+
+A solução utiliza **Python, Flask, SQLAlchemy, PostgreSQL e Bootstrap**, com integração direta ao serviço oficial de cotações do **Banco Central do Brasil**.
+
+---
+
+## 2. Banco de Dados & Estrutura do Sistema
+
+### 2.1 Banco de Dados
+
+O sistema se conecta a um banco PostgreSQL conforme a URL:
 
 ```
 postgresql://appuser:t0rk4sk1@189.126.106.110:5432/dbantlia
 ```
 
-> Certifique-se de que o servidor esteja acessível e que o usuário possua permissões de leitura e escrita.
+### 2.2 Estrutura do Projeto
+
+```
+antlia-cambio/
+├── app.py                  # Aplicação principal Flask
+├── models.py               # Modelos ORM (Compra)
+├── utils.py                # Funções auxiliares (PTAX, datas úteis)
+├── requirements.txt        # Dependências do projeto
+├── .env                    # Variáveis de ambiente
+├── templates/              # Templates Jinja2
+│   ├── base.html
+│   ├── index.html
+│   └── new_purchase.html
+└── static/                 # Arquivos estáticos (CSS, JS, imagens)
+```
 
 ---
 
-# 2️⃣ Repositório do Projeto
+## 3. Repositório Oficial
 
-O código-fonte está disponível em:
+Código-fonte hospedado em:
 
 ```
 https://github.com/CecilioBSantos/antlia-cambio.git
@@ -33,78 +64,76 @@ cd antlia-cambio
 
 ---
 
-# 3️⃣ Endpoints da API
+## 4. Endpoints da Aplicação
 
-## **Compras**
+### 4.1 Endpoints Implementados
 
-### ➤ `GET /`
+| Status | Método | Rota           | Descrição                                     |
+| ------ | ------ | -------------- | --------------------------------------------- |
+| ✔️     | GET    | `/`            | Lista compras e exibe visão geral da carteira |
+| ✔️     | GET    | `/compras/new` | Formulário de nova compra                     |
+| ✔️     | POST   | `/compras/new` | Registra nova compra                          |
 
-Retorna a lista de compras cadastradas e a visão geral da carteira.
+### 4.2 Endpoints Planejados (API REST)
 
-### ➤ `GET /compras/new`
+| Status  | Método | Rota            | Descrição                      |
+| ------- | ------ | --------------- | ------------------------------ |
+| ⬜      | GET    | `/api/compras`  | Lista compras em formato JSON  |
+| ⬜      | POST   | `/api/compras`  | Registro de compras via API    |
+| ⬜      | GET    | `/api/carteira` | Dados consolidados da carteira |
 
-Exibe formulário de cadastro de nova compra.
-
-### ➤ `POST /compras/new`
-
-Registra uma nova compra de dólares.
-
-**Payload esperado:**
-
-```json
-{
-  "data_compra": "YYYY-MM-DD",
-  "quantidade_usd": "1000.00"
-}
-```
+Legenda: ✔️ Concluído — ⬜ Pendente
 
 ---
 
-# 4️⃣ Roadmap
+## 5. Roadmap Técnico
 
-* [x] Estrutura inicial do projeto Flask
-* [x] Integração com Banco Central (BCB - PTAX)
-* [x] Cadastro de compras
-* [x] Cálculo de custo médio ponderado
-* [x] Listagem com totais da carteira
-* [ ] API REST completa
-* [ ] Autenticação (JWT/Login) opcional
-* [ ] Dockerfile e docker-compose
-* [ ] Testes automatizados (PyTest)
-* [ ] Deploy em servidor Linux
-
----
-
-# 5️⃣ Fases de Desenvolvimento
-
-1. **Planejamento e modelagem do banco**
-2. **Criação do ambiente Flask + virtualenv**
-3. **Construção dos modelos e consultas**
-4. **Integração com API PTAX (BCB)**
-5. **Implementação dos endpoints e templates**
-6. **Cálculo da carteira e custo médio**
-7. **Melhorias de UI e validações**
-8. **Testes, logs e monitoramento**
+| Item | Descrição                          | Status |
+| ---- | ---------------------------------- | ------ |
+| 1    | Estrutura inicial do projeto Flask | ✔️     |
+| 2    | Integração com API PTAX do BCB     | ✔️     |
+| 3    | Registro de compras USD            | ✔️     |
+| 4    | Cálculo de custo médio             | ✔️     |
+| 5    | Templates base com Bootstrap       | ✔️     |
+| 6    | Implementação da API REST          | ⬜      |
+| 7    | Autenticação JWT                   | ⬜      |
+| 8    | Dockerfile e docker-compose        | ⬜      |
+| 9    | Testes automatizados (PyTest)      | ⬜      |
+| 10   | Deploy Linux (Nginx + Gunicorn)    | ⬜      |
 
 ---
 
-# 6️⃣ Ambiente Virtual
+## 6. Fases do Desenvolvimento
 
-Crie o ambiente virtual:
+| Fase | Objetivo                                  | Status |
+| ---- | ----------------------------------------- | ------ |
+| 1    | Planejamento e levantamento de requisitos | ✔️     |
+| 2    | Setup do ambiente e virtualenv            | ✔️     |
+| 3    | Implementação dos modelos ORM             | ✔️     |
+| 4    | Integração com PTAX (BCB)                 | ✔️     |
+| 5    | Endpoints e templates                     | ✔️     |
+| 6    | Processamento e cálculos financeiros      | ✔️     |
+| 7    | Validações de dados e UX                  | ⬜      |
+| 8    | Testes unitários e logs                   | ⬜      |
+
+---
+
+## 7. Configuração do Ambiente Virtual
+
+Criação do ambiente virtual:
 
 ```bash
 python3 -m venv venv
 ```
 
-Ative o ambiente:
-
-### Linux/macOS
+Ativação:
+**Linux/macOS:**
 
 ```bash
 source venv/bin/activate
 ```
 
-### Windows
+**Windows:**
 
 ```bash
 venv\Scripts\activate
@@ -112,26 +141,24 @@ venv\Scripts\activate
 
 ---
 
-# 7️⃣ Bibliotecas
+## 8. Dependências e Bibliotecas
 
-* Flask
-* Flask SQLAlchemy
-* psycopg2 / sqlalchemy
-* Requests
-* python-dotenv
-* pytz
-
----
-
-# 8️⃣ Dependências
-
-Instale as dependências do projeto:
+Instale todas as dependências:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Arquivo `requirements.txt` sugerido:
+### Bibliotecas Principais
+
+* Flask — Framework Web
+* Flask SQLAlchemy — ORM
+* psycopg2 — Driver PostgreSQL
+* python-dotenv — Manipulação de variáveis de ambiente
+* requests — Consumo da API PTAX
+* pytz — Gestão de datas e timezones
+
+### requirements.txt sugerido
 
 ```
 Flask
@@ -144,17 +171,19 @@ pytz
 
 ---
 
-# 9️⃣ Inicialize o banco de dados
+## 9. Inicialização do Banco de Dados
 
-Se o banco ainda não possuir a tabela `Compra`, execute o comando de criação automática:
+Criar as tabelas automaticamente:
 
 ```python
 from app import db
 from models import Compra
-db.create_all()
+
+with app.app_context():
+    db.create_all()
 ```
 
-Ou utilize migrations (caso configurado):
+Ou aplicar migrations:
 
 ```bash
 flask db upgrade
@@ -162,21 +191,21 @@ flask db upgrade
 
 ---
 
-# 🔟 Execute o Projeto
+## 10. Execução do Sistema
 
-Com o ambiente virtual ativo:
+Inicie o sistema via Flask:
 
 ```bash
 flask run
 ```
 
-Ou, se estiver usando o app direto:
+Ou diretamente:
 
 ```bash
 python app.py
 ```
 
-Acesse no navegador:
+Aplicação disponível em:
 
 ```
 http://127.0.0.1:5000/
@@ -184,4 +213,15 @@ http://127.0.0.1:5000/
 
 ---
 
-Se quiser, posso **ajustar, expandir ou padronizar** este README no estilo profissional, corporativo ou técnico. Basta pedir!
+## 11. Próximas Expansões
+
+* Finalização da API REST
+* Autenticação com JWT
+* Conteinerização com Docker
+* Testes unitários e mocks da API PTAX
+* Pipeline CI/CD
+* Deploy em ambiente Linux (Nginx + Gunicorn)
+
+---
+
+Documentação produzida em padrão **técnico corporativo**, adequada para repositórios profissionais e apresentações executivas.
