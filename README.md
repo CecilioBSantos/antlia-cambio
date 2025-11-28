@@ -45,7 +45,10 @@ antlia-cambio/
 ├── static/                 # Arquivos estáticos (CSS, JS, imagens)
 │   ├── storage
 │   ├── css
+│   │   └── style.css
 │   ├── img
+│   │   └── logo-Antlia.webp
+│   ├── favicon.ico
 │   ├── js
 
 ```
@@ -93,18 +96,18 @@ Legenda: ✔️ Concluído — ⬜ Pendente
 
 ## 5. Roadmap Técnico
 
-| Item | Descrição                          | Status |
-| ---- | ---------------------------------- | ------ |
-| 1    | Estrutura inicial do projeto Flask | ✔️     |
-| 2    | Integração com API PTAX do BCB     | ✔️     |
-| 3    | Registro de compras USD            | ✔️     |
-| 4    | Cálculo de custo médio             | ✔️     |
-| 5    | Templates base com Bootstrap       | ✔️     |
-| 6    | Implementação da API REST          | ⬜      |
-| 7    | Autenticação JWT                   | ⬜      |
-| 8    | Dockerfile e docker-compose        | ⬜      |
-| 9    | Testes automatizados (PyTest)      | ⬜      |
-| 10   | Deploy Linux (Nginx + Gunicorn)    | ⬜      |
+| Item | Descrição                                | Status |
+| ---- | ---------------------------------------- | ------ |
+| 1    | Estrutura inicial do projeto Flask       | ✔️     |
+| 2    | Integração com API PTAX do BCB           | ✔️     |
+| 3    | Registro de compras USD                  | ✔️     |
+| 4    | Cálculo de custo médio                   | ✔️     |
+| 5    | Templates base com Bootstrap / style     | ✔️     |
+| 6    | Implementação da API REST                | ⬜      |
+| 7    | Autenticação JWT                         | ⬜      |
+| 8    | Dockerfile e docker-compose              | ⬜      |
+| 9    | Testes automatizados (PyTest)            | ⬜      |
+| 10   | Deploy Linux (Nginx + Gunicorn)          | ⬜      |
 
 ---
 
