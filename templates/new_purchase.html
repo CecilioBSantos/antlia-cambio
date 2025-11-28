@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card mb-4">
+    <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h3 class="mb-0">Nova Compra</h3>
+            <!-- Se desejar mostrar alguma info/ação extra, insira aqui -->
+        </div>
+
+        <form method="post">
+
+            <div class="row">
+                <!-- Data da Compra -->
+                <div class="col-md-4">
+                    <div class="form-group mb-3">
+                        <label class="form-label">Data da compra</label>
+                        <input class="form-control" type="date" name="data_compra" required>
+                        <small class="form-text text-muted">A consulta de cotação usará o dia útil anterior (D-1)</small>
+                    </div>
+                </div>
+
+                <!-- Quantidade USD -->
+                <div class="col-md-4">
+                    <label class="form-label">Quantidade (USD)</label>
+                    <input class="form-control" type="number" step="0.0001" name="quantidade_usd" required>
+                </div>
+            </div>
+            <!-- Botão alinhado à direita -->
+            <div class="row">
+                <div class="col-12 d-flex justify-content-end mt-2">
+                    <button class="btn btn-primary" type="submit">Registrar Compra</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+{% endblock %}

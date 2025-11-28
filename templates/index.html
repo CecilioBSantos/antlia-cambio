@@ -1,0 +1,63 @@
+
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h3>Carteira de Compras</h3>
+    <a class="btn btn-primary" href="{{ url_for('new_purchase') }}">Nova Compra</a>
+</div>
+
+{% if last_cotacao %}
+    <div class="alert alert-info p-2">
+        <strong>Última Cotação:</strong>
+        {{ last_cotacao.strftime('%d/%m/%Y %H:%M') }} — 
+        <strong>Compra: </strong> {{ '%.4f'|format(compras[0].cotacao_usd_brl) }}
+    </div>
+{% endif %}
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Data Compra</th>
+      <th>Quantidade (USD)</th>
+      <th>Cotação (R$)</th>
+      <th>Valor Total (R$)</th>
+      <th>DataHora Cotação</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for c in compras %}
+    <tr>
+      <td>{{ c.data_compra.strftime('%d/%m/%Y') if c.data_compra else '-' }}</td>
+      <td>{{ "%.4f"|format(c.quantidade_usd) }}</td>
+      <td>{{ "%.6f"|format(c.cotacao_usd_brl) }}</td>
+      <td>{{ "%.2f"|format(c.valor_total_brl) }}</td>
+      <td>{{ c.datahora_cotacao.strftime('%d/%m/%Y %H:%M') if c.datahora_cotacao else '-' }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<div class="row mt-4">
+  <div class="col-md-4">
+    <div class="card p-3">
+      <strong>Total USD</strong>
+      <div>{{ "%.2f"|format(total_usd) }}</div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card p-3">
+      <strong>Total R$</strong>
+      <div>{{ "%.2f"|format(total_brl) }}</div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card p-3">
+      <strong>Custo Médio Ponderado (R$ / USD)</strong>
+      <div>{{ custo_medio if custo_medio else '-' }}</div>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}
