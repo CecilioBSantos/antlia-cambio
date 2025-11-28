@@ -6,10 +6,8 @@ BCB_PTAX_ENDPOINT = (
     "CotacaoDolarDia(dataCotacao=@dataCotacao)?@dataCotacao='{d}'&$top=100&$format=json&$select=cotacaoCompra,cotacaoVenda,dataHoraCotacao"
 )
 
-
 def is_business_day(d: date) -> bool:
     return d.weekday() < 5
-
 
 def previous_business_day(d: date) -> date:
     delta = timedelta(days=1)
@@ -17,7 +15,6 @@ def previous_business_day(d: date) -> date:
     while not is_business_day(nd):
         nd -= delta
     return nd
-
 
 def fetch_bcb_quote_for_date(d: date):
     d_str = d.strftime('%m-%d-%Y')
