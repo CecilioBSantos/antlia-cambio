@@ -13,7 +13,7 @@ O **Antlia Cambio** é uma aplicação modular e extensível voltada ao registro
 * Cálculo de custo médio ponderado (CMP)
 * Consolidação da carteira em BRL
 * Suporte para futura API REST
-* Arquitetura preparada para growth
+
 
 A solução utiliza **Python, Flask, SQLAlchemy, PostgreSQL e Bootstrap**, com integração direta ao serviço oficial de cotações do **Banco Central do Brasil**.
 
@@ -103,11 +103,11 @@ Legenda: ✔️ Concluído — ⬜ Pendente
 | 3    | Registro de compras USD                  | ✔️     |
 | 4    | Cálculo de custo médio                   | ✔️     |
 | 5    | Templates base com Bootstrap / style     | ✔️     |
-| 6    | Implementação da API REST                | ⬜      |
-| 7    | Autenticação JWT                         | ⬜      |
-| 8    | Dockerfile e docker-compose              | ⬜      |
-| 9    | Testes automatizados (PyTest)            | ⬜      |
-| 10   | Deploy Linux (Nginx + Gunicorn)          | ⬜      |
+| 6    | Implementação da API REST                | ⬜     |
+| 7    | Autenticação JWT                         | ⬜     |
+| 8    | Dockerfile e docker-compose              | ⬜     |
+| 9    | Testes automatizados (PyTest)            | ⬜     |
+| 10   | Deploy Linux (Nginx + Gunicorn)          | ⬜     |
 
 ---
 
@@ -121,8 +121,8 @@ Legenda: ✔️ Concluído — ⬜ Pendente
 | 4    | Integração com PTAX (BCB)                 | ✔️     |
 | 5    | Endpoints e templates                     | ✔️     |
 | 6    | Processamento e cálculos financeiros      | ✔️     |
-| 7    | Validações de dados e UX                  | ⬜      |
-| 8    | Testes unitários e logs                   | ⬜      |
+| 7    | Validações de dados e UX                  | ⬜     |
+| 8    | Testes unitários e logs                   | ⬜     |
 
 ---
 
@@ -166,7 +166,7 @@ pip install -r requirements.txt
 * requests — Consumo da API PTAX
 * pytz — Gestão de datas e timezones
 
-### requirements.txt sugerido
+### requirements.txt 
 
 ```
 Flask

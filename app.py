@@ -17,6 +17,7 @@ def create_app():
 
     db.init_app(app)
 
+    # api 
     @app.route('/')
     def index():
         compras = Compra.query.order_by(Compra.data_compra.desc(), Compra.ID.desc()).all()
