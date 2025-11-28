@@ -231,3 +231,16 @@ http://127.0.0.1:5000/
 * Deploy em ambiente Linux (Nginx + Gunicorn)
 
 ---
+
+## 12. Deploy Automático (CI/CD com GitHub Actions)
+
+O projeto possui um pipeline completo de Deploy Automático.
+Sempre que um push é feito no branch main, o GitHub Actions conecta via SSH à VPS, faz git pull, atualiza dependências e reinicia o Gunicorn.
+
+## 12.1 Arquitetura do Deploy
+
+GitHub Actions → VPS (CI/CD via SSH)
+
+Serviço de produção: Gunicorn + Systemd
+
+Localização do projeto na VPS:
