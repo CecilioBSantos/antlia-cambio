@@ -33,23 +33,24 @@ postgresql://appuser:xxxxxx@189.126.106.110:5432/dbantlia
 
 ```
 antlia-cambio/
-├── app.py                  # Aplicação principal Flask
+├── antlia.py               # Aplicação principal Flask
 ├── models.py               # Modelos ORM (Compra)
 ├── utils.py                # Funções auxiliares (PTAX, datas úteis)
 ├── requirements.txt        # Dependências do projeto
 ├── .env                    # Variáveis de ambiente
+├── .git/                   # repositorio
 ├── templates/              # Templates Jinja2
 │   ├── base.html
 │   ├── index.html
 │   └── new_purchase.html
-├── static/                 # Arquivos estáticos (CSS, JS, imagens)
-│   ├── storage
-│   ├── css
-│   │   └── style.css
-│   ├── img
-│   │   └── logo-Antlia.webp
-│   ├── favicon.ico
-│   ├── js
+└── static/                 # Arquivos estáticos (CSS, JS, imagens)
+    ├── storage
+    ├── css
+    │   └── style.css
+    ├── img
+    │   └── logo-Antlia.webp
+    ├── favicon.ico
+    └── js
 
 ```
 
