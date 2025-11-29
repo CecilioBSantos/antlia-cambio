@@ -1,4 +1,4 @@
-# Antlia Cambio — Documentação Técnica Profissional
+# Antlia Cambio 
 
 Sistema desenvolvido em **Python + Flask**, integrado à API **PTAX do Banco Central do Brasil**, para registrar compras de moeda estrangeira (USD), calcular custo médio ponderado e exibir visão consolidada da carteira.
 
