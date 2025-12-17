@@ -26,7 +26,7 @@ A solução utiliza **Python, Flask, SQLAlchemy, PostgreSQL e Bootstrap**, com i
 O sistema se conecta a um banco PostgreSQL conforme a URL:
 
 ```
-postgresql://appuser:xxxxxx@189.126.106.110:5432/dbantlia
+postgresql://appuser:xxxxxx@999.999.999.999:5432/dbantlia
 ```
 
 ### 2.2 Estrutura do Projeto
